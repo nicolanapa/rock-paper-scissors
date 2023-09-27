@@ -26,7 +26,6 @@ function getComputerChoice() {
         return computerSelection;
     }
 }
-getComputerChoice();
 
 function testPlay() {
     getComputerChoice();
@@ -69,7 +68,15 @@ function testPlay() {
     else {
         risultati = "Sorry not a option";
     }
-    return risultati;
+    return console.log(risultati);
 }
 
-console.log(testPlay());
+// console.log(testPlay());
+
+function game() {
+    for (let i = 0; i < 5; i++) {
+        console.log(testPlay());
+    }
+}
+
+console.log(game());
