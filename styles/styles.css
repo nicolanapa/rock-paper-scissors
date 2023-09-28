@@ -1,0 +1,41 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+#rock,
+#paper,
+#scissors {
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px 10px 10px 1px;
+    
+}
+
+#rock {
+    background-color: rgb(87, 87, 87);
+    color: rgb(255, 255, 255);
+
+}  
+
+#paper {
+    background-color: rgb(255, 249, 245);
+    color: black;
+}
+
+#scissors {
+
+}
+
+#esito {
+    flex-direction: column;
+}
+
+#punteggio {
+    flex-direction: column;
+}
