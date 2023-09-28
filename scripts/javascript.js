@@ -114,7 +114,7 @@ function testPlay(playerSelection) {
         score.textContent = "YOU LOSE! COMPUTER WINS";
         return div_esito, score
     }
-    score.textContent = score1;
+    score.textContent = score1; // To remove
     return div_esito;
 }
 
