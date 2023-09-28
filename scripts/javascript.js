@@ -73,10 +73,10 @@ function testPlay() {
 
 // console.log(testPlay());
 
-function game() {
+/*function game() {
     for (let i = 0; i < 5; i++) {
         console.log(testPlay());
     }
 }
 
-game();
+game(); */
