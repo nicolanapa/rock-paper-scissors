@@ -10,6 +10,23 @@
 // Mostrare il vincitore a fine gioco
 // 
 let playerSelection;
+let rock = document.querySelector("#rock");
+rock.addEventListener("click", () => {
+    playerSelection = "rock";
+    testPlay(playerSelection);
+
+});
+let paper = document.querySelector("#paper");
+paper.addEventListener("click", () => {
+    playerSelection = "paper";
+    testPlay(playerSelection);
+});
+let scissors = document.querySelector("#scissors");
+scissors.addEventListener("click", () => {
+    playerSelection = "scissors";
+    testPlay(playerSelection);
+});
+
 let computerSelection;
 function getComputerChoice() {
     let randomValue = Math.floor(Math.random() * 3);
@@ -27,11 +44,11 @@ function getComputerChoice() {
     }
 }
 
-function testPlay() {
+function testPlay(playerSelection) {
     getComputerChoice();
     let risultati;
-    playerSelection = prompt("Choose between: Rock, Paper, Scissors", "Rock");
-    playerSelection = playerSelection.toLowerCase();
+    //playerSelection = prompt("Choose between: Rock, Paper, Scissors", "Rock");
+    //playerSelection = playerSelection.toLowerCase();
     if ( playerSelection == "rock" ) {
         if ( computerSelection == "rock" ) {
             risultati = "Oh! Draw between rock and rock!";
@@ -68,7 +85,9 @@ function testPlay() {
     else {
         risultati = "Sorry not a option";
     }
-    return console.log(risultati);
+    let div_esito = document.querySelector("#esito");
+    div_esito.textContent = risultati;
+    return div_esito;
 }
 
 // console.log(testPlay());
@@ -80,3 +99,4 @@ function testPlay() {
 }
 
 game(); */
+
