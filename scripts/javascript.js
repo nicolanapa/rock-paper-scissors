@@ -56,7 +56,7 @@ function testPlay(playerSelection) {
     if ( playerSelection == "rock" ) {
         if ( computerSelection == "rock" ) {
             risultati = "Oh! Draw between rock and rock!";
-            win = false;
+            win = 0;
         }
         else if ( computerSelection == "paper" ) {
             risultati = "Oh! Lost to the power of the Paper.";
@@ -70,7 +70,7 @@ function testPlay(playerSelection) {
     else if ( playerSelection == "paper" ) {
         if ( computerSelection == "paper" ) {
             risultati = "Oh! Draw between Paper and Paper!";
-            win = false;
+            win = 0;
         }
         else if ( computerSelection == "rock" ) {
             risultati = "Oh! Won against the poor Rock!";
@@ -84,7 +84,7 @@ function testPlay(playerSelection) {
     else if ( playerSelection == "scissors" ) {
         if ( computerSelection == "scissors" ) {
             risultati = "Oh! Draw between Scissors and Scissors!";
-            win = false;
+            win = 0;
         }
         else if ( computerSelection == "rock" ) {
             risultati = "Oh! Lost to the power of the Rock.";
@@ -100,19 +100,22 @@ function testPlay(playerSelection) {
     }
     let div_esito = document.querySelector("#esito");
     div_esito.textContent = risultati;
-    if ( win == true ) {
+    if ( win === true ) {
         score1 = Number(score1) + 1;
     }
-    else {
+    else if ( win === false ) {
         score1 = Number(score1) - 1;
     }
     if ( score1 == 5) {
         score.textContent = "YOU WON! COMPUTER LOSES";
         return div_esito, score;
     }
-    else if ( score1 == - 5 ) {
+    else if ( score1 == -5 ) {
         score.textContent = "YOU LOSE! COMPUTER WINS";
         return div_esito, score
+    }
+    if ( score1 > 5 || score1 < -5 ) {
+        score1 = 0;
     }
     score.textContent = score1; // To remove
     return div_esito;
