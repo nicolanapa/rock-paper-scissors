@@ -1,17 +1,8 @@
-// Pseudocode / Algoritmo
-// Inizializzare funzione getComputerChoice e dare valore random "Rock", "Paper", "Scissors"
-// Usare math.random per definire valore variabile
-// Inizializzare variabile playerSelection
-// Inizializzare variabile computerSelection
-// Usare prompt per prendere la scelta del giocatore
-// Creare funzione che emula una partita di sasso carta forbice con i due parametri inizializzati
-// Ritornare (Return) una stringa che dichiara il vincitore (nella funzione)
-// Creare funzione game() per loopare 5 round
-// Mostrare il vincitore a fine gioco
-// 
 let playerSelection;
-let score = document.querySelector("#punteggio");
-let score1 = 0;
+let scorePlayer = document.querySelector("#punteggioPlayer");
+let scorePlayer1 = 0;
+let scoreComputer = document.querySelector("#punteggioComputer");
+let scoreComputer1 = 0;
 let rock = document.querySelector("#rock");
 rock.addEventListener("click", () => {
     playerSelection = "rock";
@@ -51,8 +42,8 @@ function testPlay(playerSelection) {
     getComputerChoice();
     let risultati;
     let win;
-    //playerSelection = prompt("Choose between: Rock, Paper, Scissors", "Rock");
-    //playerSelection = playerSelection.toLowerCase();
+    //playerSelection = prompt("Choose between: Rock, Paper, Scissors", "Rock"); -> OLD CODE
+    //playerSelection = playerSelection.toLowerCase(); -> OLD CODE
     if ( playerSelection == "rock" ) {
         if ( computerSelection == "rock" ) {
             risultati = "Oh! Draw between rock and rock!";
@@ -101,33 +92,24 @@ function testPlay(playerSelection) {
     let div_esito = document.querySelector("#esito");
     div_esito.textContent = risultati;
     if ( win === true ) {
-        score1 = Number(score1) + 1;
+        scorePlayer1 = Number(scorePlayer1) + 1;
     }
     else if ( win === false ) {
-        score1 = Number(score1) - 1;
+        scoreComputer1 = Number(scoreComputer1) + 1;
     }
-    if ( score1 == 5) {
-        score.textContent = "YOU WON! COMPUTER LOSES";
-        return div_esito, score;
+    if ( scorePlayer1 == 5) {
+        scorePlayer.textContent = "YOU WON! COMPUTER LOSES 😍";
+        scorePlayer1 = 0;
+        scoreComputer1 = 0;
+        return div_esito, scorePlayer;
     }
-    else if ( score1 == -5 ) {
-        score.textContent = "YOU LOSE! COMPUTER WINS";
-        return div_esito, score
+    else if ( scoreComputer1 == 5 ) {
+        scoreComputer.textContent = "YOU LOSE! COMPUTER WINS 😓";
+        scorePlayer1 = 0;
+        scoreComputer1 = 0;
+        return div_esito, scoreComputer
     }
-    if ( score1 > 5 || score1 < -5 ) {
-        score1 = 0;
-    }
-    score.textContent = score1; // To remove
+    scoreComputer.textContent = scoreComputer1;
+    scorePlayer.textContent = scorePlayer1;
     return div_esito;
 }
-
-// console.log(testPlay());
-
-/*function game() {
-    for (let i = 0; i < 5; i++) {
-        console.log(testPlay());
-    }
-}
-
-game(); */
-
